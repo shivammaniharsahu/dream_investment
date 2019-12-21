@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+	<div class="form-group">
+		{% if message in messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li>
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+</div>
+<div class="container">
+    <h1>Signup Here !</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+    {{ form|crispy }}
+
+        <input type="submit" />
+    </form>
+</div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,46 @@
+  {% load static %}
+    <header class="header">
+      <!-- Main Navbar-->
+      <nav class="navbar navbar-expand-lg">
+
+
+        <div class="container">
+          <!-- Navbar Brand -->
+
+          <div class="navbar-header d-flex align-items-center justify-content-between">
+
+
+
+                    <div class="logo float-left">
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+                    <a href="/" class="scrollto"><img src="{% static 'img/logo1.jpeg' %}" alt="" class="img-fluid"></a>
+                  </div>
+
+            <!-- Toggle Button-->
+            <button type="button" data-toggle="collapse" data-target="#navbarcollapse" aria-controls="navbarcollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span></span><span></span><span></span></button>
+          </div>
+          <!-- Navbar Menu -->
+          <div id="navbarcollapse" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/" class="nav-link ">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="/post/1/" class="nav-link ">Blog</a>
+                    </li>
+
+                    <li class="nav-item"><a href="/contact/" class="nav-link ">Contact</a>
+                    </li>
+                    {% if request.user.is_staff %}
+                    <li class="nav-item"><a href="{% url 'post-create' %}" class="nav-link ">Create</a>
+                    </li>
+                    {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <li class="nav-item"><a href="/accounts/logout" class="nav-link ">Logout</a>
+                    </li>
+                    {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>

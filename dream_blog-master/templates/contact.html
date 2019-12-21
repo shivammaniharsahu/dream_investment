@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+<html>
+<head>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'img/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+
+	<div class="bg-container-contact100" style="background-image: url(/static/img/icons/bg-01.jpg) ">
+		<div class="contact100-header flex-sb-m">
+			<a href="/" class="scrollto">
+				<img src="{% static 'img/logo1.jpeg' %}" alt="LOGO" class="img-fluid">
+			</a>
+
+			<div>
+				<a href="/">
+				<button class="btn-show-contact100" >
+					Contact Us
+				</button>
+				</a>
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="form-group">
+		{% if message in messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li>
+				<div class="alert alert-success">
+					{{ message }}
+				</div>
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+	</div>
+</div>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url({% static 'img/icons/bg-02.jpg' %})">
+				<span>Contact Us</span>
+			</div>
+            <form method="POST" class="contact100-form validate-form" >
+
+					<div class="container">
+							{% csrf_token %}
+						{{ form|crispy }}
+					</div>
+						<div class="container-contact100-form-btn">
+							<button class="contact100-form-btn">
+								Send Message
+							</button>
+						</div>
+
+            </form>
+
+
+		</div>
+
+
+
+	</div>
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+		<script src=" {% static 'js/main.js' %}"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+
+
+</body>
+</html>
